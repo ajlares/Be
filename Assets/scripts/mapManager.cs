@@ -7,6 +7,7 @@ public class mapManager : MonoBehaviour
     public float yMax;
     public float xMax;
     public float moveSpeed;
+    public float spawnTime = 1;
     public GameObject prefab;
     
     public static mapManager Instance;
@@ -19,7 +20,7 @@ public class mapManager : MonoBehaviour
     private void Start()
     {
         moveSpeed *= -1;
-        InvokeRepeating("CreateMap",0f,5);
+        InvokeRepeating("CreateMap",0f, spawnTime);
     }
 
     private void CreateMap()
@@ -27,7 +28,7 @@ public class mapManager : MonoBehaviour
         Vector3 spawnVector3 = new Vector3(Random.Range(-xMax,xMax),yMax,0);
        GameObject obj = Instantiate(prefab, spawnVector3, transform.rotation);
        obj.transform.parent = this.transform;
-       obj.name = "mapPrefab";
+       obj.name = "Cubito";
     }
 
     public void FlipMap()

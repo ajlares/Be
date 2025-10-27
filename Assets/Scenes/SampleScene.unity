@@ -150,7 +150,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::mapManager
   yMax: 7
   xMax: 11
-  moveSpeed: 5
+  moveSpeed: 500
+  spawnTime: 1
   prefab: {fileID: 7469525799683826463, guid: cda1e4e417391e64c88e72a2f35dfd11, type: 3}
 --- !u!4 &324620450
 Transform:
