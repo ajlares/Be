@@ -596,6 +596,8 @@ GameObject:
   - component: {fileID: 324620450}
   - component: {fileID: 324620449}
   - component: {fileID: 324620451}
+  - component: {fileID: 324620452}
+  - component: {fileID: 324620453}
   m_Layer: 0
   m_Name: 'mapManager '
   m_TagString: Untagged
@@ -651,6 +653,65 @@ MonoBehaviour:
   isONMainMenu: 0
   isPaused: 0
   pauseMenu: {fileID: 346927466}
+--- !u!114 &324620452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 324620448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38ae6aea665351d4489833058e392d76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerInputReader
+  Direction: 0
+--- !u!114 &324620453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 324620448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.PlayerInput
+  m_Actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 324620452}
+        m_TargetAssemblyTypeName: PlayerInputReader, Assembly-CSharp
+        m_MethodName: Rotation
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: aff4b120-b6ac-422f-9f29-284785e3aa70
+    m_ActionName: 'Control/Rotate[/Keyboard/a,/Keyboard/d]'
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Control
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &346927466
 GameObject:
   m_ObjectHideFlags: 0
@@ -1070,27 +1131,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 558064573}
   m_CullTransparentMesh: 1
---- !u!1 &666481856 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 66e4bf7d69f9ace4d991f004f0dd9092, type: 3}
-  m_PrefabInstance: {fileID: 802249531}
-  m_PrefabAsset: {fileID: 0}
---- !u!111 &666481860
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 666481856}
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Animation: {fileID: 0}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_UpdateMode: 0
-  m_CullingType: 0
 --- !u!1 &776225736
 GameObject:
   m_ObjectHideFlags: 0
@@ -1199,7 +1239,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 66e4bf7d69f9ace4d991f004f0dd9092, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 7.12
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 66e4bf7d69f9ace4d991f004f0dd9092, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1244,10 +1284,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 66e4bf7d69f9ace4d991f004f0dd9092, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 666481860}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66e4bf7d69f9ace4d991f004f0dd9092, type: 3}
 --- !u!1 &804109653
 GameObject:

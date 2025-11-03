@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class mapMovement : MonoBehaviour
+public class MapMovement : MonoBehaviour
 {
     public Rigidbody rb;
 

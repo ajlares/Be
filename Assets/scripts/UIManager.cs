@@ -21,5 +21,4 @@ public class UIManager : MonoBehaviour
             Time.timeScale = isPaused ? 0 : 1;
         }
     }
-    
 }
