@@ -619,8 +619,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::mapManager
   yMax: 7
   xMax: 11
-  moveSpeed: 200
-  spawnTime: 3
+  moveSpeed: 600
+  spawnTime: 1.5
+  spawnPlatformNum: 7
   prefab: {fileID: 7469525799683826463, guid: cda1e4e417391e64c88e72a2f35dfd11, type: 3}
   player: {fileID: 666481856}
 --- !u!4 &324620450
@@ -1191,8 +1192,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb874c38050c0854daf766c418260bf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  gravity: -1
-  horizontalSpeed: 5
+  gravity: -5
+  horizontalSpeed: 7
   jumpForce: 10
   rb: {fileID: 666481864}
 --- !u!65 &666481866
@@ -1324,11 +1325,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 66e4bf7d69f9ace4d991f004f0dd9092, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.09
+      value: 2.43
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 66e4bf7d69f9ace4d991f004f0dd9092, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 66e4bf7d69f9ace4d991f004f0dd9092, type: 3}
       propertyPath: m_LocalRotation.w
