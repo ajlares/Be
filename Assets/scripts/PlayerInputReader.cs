@@ -21,4 +21,12 @@ public class PlayerInputReader : MonoBehaviour
     {
         Direction = context.ReadValue<float>();
     }
+
+    public void Touch(InputAction.CallbackContext context)
+    { 
+        if (context.phase == InputActionPhase.Started)
+        {
+            mapManager.Instance.FlipMap();
+        }
+    }
 }

@@ -9,20 +9,27 @@ public class mapManager : MonoBehaviour
     public float moveSpeed;
     public float spawnTime = 1;
     public GameObject prefab;
-    
     public static mapManager Instance;
 
     private void Awake()
     {
         Instance = this;
     }
-
     private void Start()
     {
         moveSpeed *= -1;
         InvokeRepeating("CreateMap",0f, spawnTime);
     }
-
+    void Update()
+    {
+        foreach (Touch touch in Input.touches)
+        {
+            if (touch.phase == TouchPhase.Began)
+            {
+                Debug.Log("Tocado detectado en la posición: " + touch.position);
+            }
+        }
+    }
     private void CreateMap()
     {
         Vector3 spawnVector3 = new Vector3(Random.Range(-xMax,xMax),yMax,0);
@@ -30,7 +37,6 @@ public class mapManager : MonoBehaviour
        obj.transform.parent = this.transform;
        obj.name = "Cubito";
     }
-
     public void FlipMap()
     {
         yMax *= -1;

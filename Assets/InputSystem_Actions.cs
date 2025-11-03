@@ -100,6 +100,15 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""touch"",
+                    ""type"": ""Button"",
+                    ""id"": ""43ea5285-b415-459e-be0c-ee6169c1c177"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": ""Press"",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -135,6 +144,17 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""action"": ""Rotate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2cbe325b-4840-4de9-95b8-109221a41146"",
+                    ""path"": ""<Touchscreen>/primaryTouch/press"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Touch"",
+                    ""action"": ""touch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -205,6 +225,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         // Control
         m_Control = asset.FindActionMap("Control", throwIfNotFound: true);
         m_Control_Rotate = m_Control.FindAction("Rotate", throwIfNotFound: true);
+        m_Control_touch = m_Control.FindAction("touch", throwIfNotFound: true);
     }
 
     ~@InputSystem_Actions()
@@ -286,6 +307,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Control;
     private List<IControlActions> m_ControlActionsCallbackInterfaces = new List<IControlActions>();
     private readonly InputAction m_Control_Rotate;
+    private readonly InputAction m_Control_touch;
     /// <summary>
     /// Provides access to input actions defined in input action map "Control".
     /// </summary>
@@ -301,6 +323,10 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Control/Rotate".
         /// </summary>
         public InputAction @Rotate => m_Wrapper.m_Control_Rotate;
+        /// <summary>
+        /// Provides access to the underlying input action "Control/touch".
+        /// </summary>
+        public InputAction @touch => m_Wrapper.m_Control_touch;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -330,6 +356,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @Rotate.started += instance.OnRotate;
             @Rotate.performed += instance.OnRotate;
             @Rotate.canceled += instance.OnRotate;
+            @touch.started += instance.OnTouch;
+            @touch.performed += instance.OnTouch;
+            @touch.canceled += instance.OnTouch;
         }
 
         /// <summary>
@@ -344,6 +373,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @Rotate.started -= instance.OnRotate;
             @Rotate.performed -= instance.OnRotate;
             @Rotate.canceled -= instance.OnRotate;
+            @touch.started -= instance.OnTouch;
+            @touch.performed -= instance.OnTouch;
+            @touch.canceled -= instance.OnTouch;
         }
 
         /// <summary>
@@ -456,5 +488,12 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnRotate(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "touch" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnTouch(InputAction.CallbackContext context);
     }
 }
