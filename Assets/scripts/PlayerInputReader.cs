@@ -20,22 +20,22 @@ public class PlayerInputReader : MonoBehaviour
 
     private void Update()
     {
-        //if (UnityEngine.InputSystem.Gyroscope.current != null)
-        //{
-        //    Vector3 rotationRate = UnityEngine.InputSystem.Gyroscope.current.angularVelocity.ReadValue();
-        //    if (rotationRate.y > 0.5f)
-        //    {
-        //        Direction = 1;
-        //    }
-        //    else if (rotationRate.y < -0.5f)
-        //    {
-        //        Direction = -1;
-        //    }
-        //    else
-        //    {
-        //        Direction = 0;
-        //    }
-        //}
+        if (UnityEngine.InputSystem.Gyroscope.current != null)
+        {
+            Vector3 rotationRate = UnityEngine.InputSystem.Gyroscope.current.angularVelocity.ReadValue();
+            if (rotationRate.y > 0.5f)
+            {
+                Direction = 1;
+            }
+            else if (rotationRate.y < -0.5f)
+            {
+                Direction = -1;
+            }
+            else
+            {
+                Direction = 0;
+            }
+        }
 
     }
     public void Rotation(InputAction.CallbackContext  context)
@@ -44,9 +44,9 @@ public class PlayerInputReader : MonoBehaviour
     }
     public void Touch(InputAction.CallbackContext context)
     { 
-        if (context.phase == InputActionPhase.Started)
-        {
-            mapManager.Instance.FlipMap();
-        }
+        //if (context.phase == InputActionPhase.Started)
+        //{
+        //    mapManager.Instance.FlipMap();
+        //}
     }
 }
