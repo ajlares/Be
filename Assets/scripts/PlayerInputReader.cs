@@ -1,23 +1,24 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerInputReader : MonoBehaviour
 {
-    public InputAction horizontalAction;
+    public InputSystem_Actions Actions;
 
-    private void OnEnable()
+    private void Start()
     {
-        horizontalAction.Enable();
-    }
-
-    private void OnDisable()
-    {
-        horizontalAction.Disable();
+        Actions = new InputSystem_Actions();
     }
 
     void Update()
     {
-        float value = horizontalAction.ReadValue<float>();
+        float value = Actions.Control.Rotate.ReadValue<float>();
         Debug.Log("Horizontal input: " + value); // -1, 0, or 1
+    }
+
+    public void Rotation()
+    {
+        
     }
 }
