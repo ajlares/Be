@@ -39,7 +39,7 @@ public class PlayerInputReader : MonoBehaviour
     }
     public void Rotation(InputAction.CallbackContext  context)
     {
-        //Direction = context.ReadValue<float>();
+        Direction = context.ReadValue<float>();
     }
     public void Touch(InputAction.CallbackContext context)
     { 
