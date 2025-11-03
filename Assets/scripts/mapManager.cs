@@ -8,7 +8,9 @@ public class mapManager : MonoBehaviour
     public float xMax;
     public float moveSpeed;
     public float spawnTime = 1;
+    public int spawnPlatformNum;
     public GameObject prefab;
+    public GameObject player;
     public static mapManager Instance;
 
     private void Awake()
@@ -19,6 +21,7 @@ public class mapManager : MonoBehaviour
     {
         moveSpeed *= -1;
         InvokeRepeating("CreateMap",0f, spawnTime);
+        firsCreateMap();
     }
     void Update()
     {
@@ -28,6 +31,16 @@ public class mapManager : MonoBehaviour
             {
                 Debug.Log("Tocado detectado en la posición: " + touch.position);
             }
+        }
+    }
+    private void firsCreateMap()
+    {
+        for (int i = 0; i < spawnPlatformNum; i++)
+        {
+            Vector3 spawnPos = new Vector3(Random.Range(-xMax, xMax), Random.Range(-yMax,yMax), 0f);
+            GameObject obj = Instantiate(prefab, spawnPos, transform.rotation);
+            obj.transform.parent = this.transform;
+            obj.name = "Cubito";
         }
     }
     private void CreateMap()
@@ -41,6 +54,6 @@ public class mapManager : MonoBehaviour
     {
         yMax *= -1;
         moveSpeed *= -1;
-        this.gameObject.transform.Rotate(0, 0,180);
+        player.GetComponent<PlayerMovement>().SwapGravity();
     }
 }

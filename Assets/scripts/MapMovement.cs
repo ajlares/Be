@@ -4,10 +4,11 @@ using UnityEngine;
 public class MapMovement : MonoBehaviour
 {
     public Rigidbody rb;
+    public float deathTime;
 
     private void Start()
     {
-        Destroy(this.gameObject, 10f);
+        Destroy(this.gameObject, deathTime);
     }
 
     private void Update()
