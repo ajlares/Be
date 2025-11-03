@@ -1,9 +1,15 @@
 using System;
 using UnityEngine;
 
-public class mapMovement : MonoBehaviour
+public class MapMovement : MonoBehaviour
 {
     public Rigidbody rb;
+    public float deathTime;
+
+    private void Start()
+    {
+        Destroy(this.gameObject, deathTime);
+    }
 
     private void Update()
     {

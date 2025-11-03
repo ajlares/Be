@@ -1,23 +1,52 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+
 public class PlayerInputReader : MonoBehaviour
 {
-    public InputAction horizontalAction;
+    public InputSystem_Actions Actions;
+    public float Direction;
+    
+    public static PlayerInputReader Instance;
 
-    private void OnEnable()
+    private void Awake()
     {
-        horizontalAction.Enable();
+        Instance = this;
+    }
+    private void Start()
+    {
+        Actions = new InputSystem_Actions();
     }
 
-    private void OnDisable()
+    private void Update()
     {
-        horizontalAction.Disable();
-    }
+        //if (UnityEngine.InputSystem.Gyroscope.current != null)
+        //{
+        //    Vector3 rotationRate = UnityEngine.InputSystem.Gyroscope.current.angularVelocity.ReadValue();
+        //    if (rotationRate.y > 0.5f)
+        //    {
+        //        Direction = 1;
+        //    }
+        //    else if (rotationRate.y < -0.5f)
+        //    {
+        //        Direction = -1;
+        //    }
+        //    else
+        //    {
+        //        Direction = 0;
+        //    }
+        //}
 
-    void Update()
+    }
+    public void Rotation(InputAction.CallbackContext  context)
     {
-        float value = horizontalAction.ReadValue<float>();
-        Debug.Log("Horizontal input: " + value); // -1, 0, or 1
+        Direction = context.ReadValue<float>();
+    }
+    public void Touch(InputAction.CallbackContext context)
+    { 
+        if (context.phase == InputActionPhase.Started)
+        {
+            mapManager.Instance.FlipMap();
+        }
     }
 }
