@@ -36,17 +36,16 @@ public class PlayerInputReader : MonoBehaviour
                 Direction = 0;
             }
         }
-
     }
     public void Rotation(InputAction.CallbackContext  context)
     {
-        Direction = context.ReadValue<float>();
+        //Direction = context.ReadValue<float>();
     }
     public void Touch(InputAction.CallbackContext context)
     { 
-        //if (context.phase == InputActionPhase.Started)
-        //{
-        //    mapManager.Instance.FlipMap();
-        //}
+        if (context.phase == InputActionPhase.Started)
+        {
+            mapManager.Instance.FlipMap();
+        }
     }
 }
