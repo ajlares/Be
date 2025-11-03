@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -21,5 +23,9 @@ public class UIManager : MonoBehaviour
             Time.timeScale = isPaused ? 0 : 1;
         }
     }
-    
+
+    public void StartGame(InputAction.CallbackContext context)
+    {
+        SceneManager.LoadScene("GameMode");
+    }
 }
